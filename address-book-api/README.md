@@ -9,6 +9,8 @@
 6. externalize configration using viper - https://towardsdatascience.com/use-environment-variable-in-your-next-golang-project-39e17c3aaa66 
 7. Define Protobuf contract
 
+## Accessing the Enpoint OpenAPI documentation
+https://localhost:8080/swagger/index.html
 
 ## Swagger Documentation 
 https://github.com/swaggo/swag

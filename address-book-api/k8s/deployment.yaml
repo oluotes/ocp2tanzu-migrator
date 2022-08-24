@@ -40,7 +40,7 @@ spec:
           value: "3306"
         - name: DB_NAME
           value: migratordb
-        image: quay.io/oluotes0/address-book:v4
+        image: quay.io/oluotes0/address-book:v5
         imagePullPolicy: IfNotPresent
         name: address-book-api
         ports:
