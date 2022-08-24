@@ -1,0 +1,53 @@
+syntax = "proto3";
+package contactservice;
+
+option go_package = "vmware.com/migrator-poc/gateway-service/proto";
+
+service ContactService {
+    rpc getContacts(ContactID) returns (Contacts);
+    rpc createContact(Contact) returns (ContactID);
+    rpc findContact(ContactID) returns (Contact);
+    rpc deleteContact(ContactID) returns (Contact);
+    rpc updateContact(ContactUpdate) returns (Contact);
+}
+
+message ContactUpdate {
+    ContactID id = 1;
+    Contact contact = 2;
+}
+
+message ContactID {
+    string value = 1;
+}
+
+message Contact {
+    string firstname = 1;
+    string lastname = 2;
+
+    message Address {
+        string street = 1;
+        string city = 2;
+        string province = 3;
+        string country = 4;
+        string postalcode = 5;
+    }
+    Address address = 3;
+
+    enum PhoneType {
+       MOBILE = 0;
+       HOME = 1;
+       WORK = 2;
+    }
+    
+    message PhoneNumber {
+       string number = 1;
+       PhoneType type = 2;
+    }
+
+    string email = 4;
+    repeated PhoneNumber phones = 5; 
+}
+
+message Contacts {
+    repeated Contact contact = 1;
+}
